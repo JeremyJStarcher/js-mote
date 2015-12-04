@@ -1,0 +1,26 @@
+function integer fact(integer x)
+  # Dummy prototype
+  # This will be replaced by the function below
+@
+
+function integer fact(integer number)
+  #show("Entering fact: number = " + number.string + "\n")
+  if number <= 1
+    fact = 1
+  else
+    fact = number * fact(number -1)
+  endif  
+  #show("Leaving fact: number = " + number.string + "\n")
+@
+
+function  main()
+  declare integer i
+  declare integer k
+
+  i = 12
+  show("Looking for the answer to " + i.string + "!\n")
+  k = fact(i)
+  show(i.string + "! = " + k.string + "\n")
+@
+
+

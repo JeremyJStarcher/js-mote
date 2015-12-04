@@ -1,0 +1,88 @@
+function main()
+  declare integer i
+  declare integer k
+  
+  declare string s
+  s = "Hello" + " " + "world!"
+  s += "\n"
+  show(s)
+
+  show("Starting loop\n")
+  i = 0-1
+  do while (i += 1) < 5
+    showi(i)
+  loop
+  show("The last value printed should have been 4.\n")
+
+  show("Now trying a big loop for testing\n")
+  i = 0-1
+  do while (i += 1) < 1000
+    if i % 250 == 0
+      showi(i)
+    endif
+  loop
+  show("Done!\n")
+
+  if 1 == 1
+    show("Inside first if -- good\n")
+
+    if 2 == 3
+      show("Error #5\n")
+    else
+      show("Regular else statement works\n")
+    endif
+
+    if 2 == 2
+      show("Good value #1\n")
+    else 1 == 1
+      show("Error #1\n")
+    endif
+
+    if 3 == 4
+      show("Error #2\r")
+    else 3 == 3
+      if 2 == 3
+      show("Error #3\r")
+      else 1 == 1
+      show("Good value #2\n")
+      endif
+    else 2 == 4
+      show("Error #4\r")
+    endif
+  endif
+
+  if ((100 / 2+2*1+1) == 25 * 2 + 3)
+    show("Mathtest #1 worked\n")
+  endif
+  if (20 * (2+10)) == 200 + 80 / 2
+    show("Mathtest #2 worked\n")
+  endif
+  if (700 / (2+3*2)) == 87
+    show("Mathtest #3 worked\n")
+  endif
+  show("Three math tests should have worked.\n")
+
+  show("Testing two argument functions\n")
+  i = max(max(1,9),max(10-3,(1+1+1+1+1) * 2))
+  show("The result should be 10:\n")
+  showi(i)
+  show("\n")
+
+  show("Testing comma operator....\n")
+  if max(1+1,2+3) == 5
+    show("Success\n")
+  else
+    show("Failed\n")
+  endif
+  if max(1,2+3) == 5
+    show("Success\n")
+  else
+    show("Failed\n")
+  endif
+  if max(1+1,3) == 3
+    show("Success\n")
+  else
+    show("Failed\n")
+  endif
+  show("There should be three Successes.\n")
+@

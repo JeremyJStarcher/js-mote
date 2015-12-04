@@ -1,0 +1,35 @@
+function main()
+  declare integer i
+  declare string s
+  
+  showi()
+  showi(10,10)
+  showi("Hello")
+  show(10)
+  i = 0 + ("Hi" + " there")
+
+  s = 1.string
+  s = "Hi".string
+  s = (1 + 2).string
+  s = 1.string(2)
+
+  if 1 == 1
+    loop
+  endif
+  
+   if 1 == 1
+     do while 1 == 1
+   endif
+  
+  i = foo + bar;
+
+  i = 10 +
+  i = 10 + 5 1
+  i = (10+1
+  i = 10-1)
+  
+  s = "Hello
+  s = "hello" + "Judy
+
+  k = 10
+@

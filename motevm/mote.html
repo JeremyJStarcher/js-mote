@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+
+  <title>Mote VM: Spec2 Emulator</title>
+  
+  <link rel="stylesheet" type="text/css" href="motevm.css">
+
+<script src="tools/tools.js" type="text/javascript"></script>
+<script src="tools/tabs.js" type="text/javascript"></script>
+<script src="tools/floatwin.js" type="text/javascript"></script>
+<script src="lookup.js" type="text/javascript"></script>
+<script src="mote_types.js" type="text/javascript"></script>
+<script src="hardconst.js" type="text/javascript"></script>
+<script src="tokenize.js" type="text/javascript"></script>
+<script src="vartype.js" type="text/javascript"></script>
+<script src="vm.js" type="text/javascript"></script>
+<script src="mote_compile.js" type="text/javascript"></script>
+<script src="infix.js" type="text/javascript"></script>
+<script src="mudlib/char.js" type="text/javascript"></script>
+<script src="mudlib/lib.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <div>
+    <div id="navcontainer">
+      Font: <span id="fontSize" class="status" title="Current font size">???</span>
+      <a href="#" onClick="changeSize('dialog_content',1);return false"><img src="pics/button_increase.gif" alt="Text+" title="Bigger font"></a>
+      <a href="#" onClick="changeSize('dialog_content',-1);return false"><img src="pics/button_decrease.gif" alt="Text-" title="Smaller font"></a>
+      <a href="#" class="ctlbutton" onClick="do_compile($('spec2Input').value);return false" title="Compile Spec2">Compile</a>
+      <a href="#" class="ctlbutton" onClick="VMRun('main');return false" title="Run program">Run</a>
+      <a href="#" class="ctlbutton" onClick="VMStop();return false" title="Stop running program">Stop</a>
+      <span id="msgTwiddle" class="status2" title="An idle marker">&nbsp;</span>
+      Status: <span id="msgStatus" class="status" title="The current program status">Page just loaded</span>
+
+      
+      <ul id="navlist">
+        <li><a href="#" id="link1" onClick="selectTab('1');return false" class="current" title="Spec2 Source code">Source</a></li>
+        <li><a href="#" id="link5" onClick="selectTab('5');return false" title="Program output">Output</a></li>
+        <li><a href="#" id="link2" onClick="selectTab('2');return false" title="Tokenized Source">Tokens</a></li>
+        <li><a href="#" id="link3" onClick="selectTab('3');return false" title="Opcodes list">Opcodes</a></li>
+        <li><a href="#" id="link4" onClick="selectTab('4');return false" title="Errors and debugging info">Errors</a></li>
+        <li><a href="#" id="link6" onClick="selectTab('6');return false" title="Full run log (When enabled)">Log</a></li>
+        <li><a href="#" id="link7" onClick="selectTab('7');return false" title="Load a program">Load</a></li>
+      </ul>
+    </div>
+
+    
+    
+    <div id="content">
+      <form name="tab1_form" method="post" action="javascript:void(0)" id="tab1_form">
+    
+    
+      <div id="tab1">
+          <textarea class="dialog_content" id="spec2Input" rows=25 cols=80>
+#0000000011111111112222222222333333333344444444445555555555666666666677777777778
+#2345678901234567890123456789012345678901234567890123456789012345678901234567890</textarea>
+      </div>
+
+      <div id="tab2">
+          <textarea class="dialog_content" id="tokenList" name="tokenList" rows="25" cols="80" readonly="readonly"></textarea>
+      </div>
+
+      <div id="tab3">
+          <textarea class="dialog_content" id="opcodeList" name="opcodeList" rows="25" cols="80" readonly="readonly"></textarea>
+      </div>
+
+      <div id="tab4">
+          <textarea class="dialog_content" id="errorList" name="errorList" rows="25" cols="80" readonly="readonly"></textarea>
+      </div>
+
+      <div id="tab5">
+          <textarea class="dialog_content" id="programOutput" name="programOutput" rows="25" cols="80" readonly="readonly"></textarea>
+      </div>
+
+      <div id="tab6">
+          <textarea class="dialog_content" id="logOutput" name="logOutput" rows="25" cols="80" readonly="readonly">
+This is only used when full logging is enabled in the VM.  Its an opcode by
+opcode run.  Since it slow things down horribly when its enabled, its only used
+during VM level debugging.</textarea>
+      </div>
+
+      <div id="tab7">
+        <table id="prgList" summary="Optional programs to load"> 
+        <tbody id="prgListBody">
+        <tr>
+          <td>&nbsp;</td>
+          <td>Name</td>
+          <td>Description</td>
+        </tr>
+        </tbody>
+        </table>
+      </div>
+
+      
+    </form>      
+    </div>
+    
+  </div>
+  
+  
+  <script type="text/javascript">
+  selectTab('1'); // HACK:  Need to run this before changing the tabs.
+  charInitWindow();
+  changeSize('dialog_content',0)
+  xmlMakeIndex();  
+  selectTab('1'); // HACK: THEN clean up after ourselves.
+</script>
+</body>
+</html>

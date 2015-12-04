@@ -1,0 +1,4 @@
+99bottles.mote 99 Bottles of Beer on the wall
+factorial.mote Calculate factorials
+test_branch.mote Test branching logic
+test_syntax.mote A bunch of syntax errors

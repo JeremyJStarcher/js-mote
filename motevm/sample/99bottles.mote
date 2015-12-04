@@ -1,0 +1,24 @@
+function  main()
+  declare integer i
+  declare integer k
+  declare integer l
+  declare string b
+  
+  b = "bottles"
+  declare integer beer
+  beer = 100
+  do while (beer -= 1) > 1
+    if beer - 1 == 1
+      b = "bottle"
+    endif
+    show(beer.string + " bottles of beer on the wall.\n")
+    show(beer.string + " bottles of beer.\n")
+    show("You take one down, pass it around.\n")
+    show((beer-1).string + " " + b + " of beer on the wall.\n\n")
+  loop
+  show("1 bottle of beer on the wall.\n")
+  show("1 bottle of beer.\n")
+  show("You take it down, pass it around.\n")
+  show("No more bottles of beer on the wall.")
+@
+
